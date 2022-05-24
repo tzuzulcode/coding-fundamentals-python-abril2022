@@ -13,13 +13,26 @@ class Animal: # Super clase
     def reproduce(self):
         pass
 
-class Cat(Animal): # Sub clase
+class Felino(Animal):
+    def __init__(self, color, size, has_eyes, paws, texture, whiskers):
+        super().__init__(color, size, has_eyes, paws, texture)
+        self.whiskers = whiskers
+
+class Robot:
+    pass
+
+class Zombi:
+    pass
+
+class Cat(Felino,Robot,Zombi): # Sub clase
 
     lifes = 7
     has_tough_tongue = True
 
-    def __init__(self, color, size, has_eyes, paws, texture, has_hair):
-        super().__init__(color, size, has_eyes, paws, texture)
+    def __init__(self, color, size, has_eyes, paws, texture,whiskers, has_hair):
+        Felino.__init__(self,color, size, has_eyes, paws, texture, whiskers)
+        Zombi.__init__(self)
+        Robot.__init__(self)
         # self.color = color
         # self.size = size
         self.has_hair = has_hair
@@ -39,6 +52,11 @@ class Dog(Animal):
 print(issubclass(Cat, Animal))
 
 
-michi = Cat("White","30cm",True,4,"Soft",True)
+michi = Cat("White","30cm",True,4,"Soft",True, True)
+
+michi.jump()
 
 print(michi.color)
+print(michi.whiskers)
+print(michi.has_hair)
+
