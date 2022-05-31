@@ -14,7 +14,9 @@ class Cart:
         else:
             print("No hay suficiente cantidad disponible")
 
-    
+    def get_iva(self):
+        pass
+
     def get_total(self):
         suma = 0
         for i in range(len(self.products_list)):
