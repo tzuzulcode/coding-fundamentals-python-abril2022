@@ -1,4 +1,3 @@
-from logging import root
 import tkinter as tk
 #from tkinter import *
 
@@ -19,7 +18,7 @@ form_frame = tk.Frame(window) # grid
 title = tk.Label(
     title_frame, 
     text="Hola mundo",
-    font=('Arial 23 bold'),# font(Estilo de letra)
+    font=('Arial 50 bold'),# font(Estilo de letra)
     bg='#C1D7AE', # Background (Color de fondo)
     fg='#8CC084', # Foreground(Color del texto)
     anchor='w', # De que lado del widget se colocara el texto
@@ -47,11 +46,11 @@ cats_input.grid(row=2,column=1)
 number_label.grid(row=3,column=0)
 number_of_cats.grid(row=3,column=1, padx=50, pady=20)
 submit_button.grid(row=4,column=0, columnspan=2, sticky=(tk.W+tk.E), ipady=10)
-output_line.pack()
 
 
 title_frame.pack(fill="x")
 form_frame.pack(fill="x")
+output_line.pack()
 
 
 def on_submit():
