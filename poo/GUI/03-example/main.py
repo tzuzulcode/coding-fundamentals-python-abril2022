@@ -1,6 +1,7 @@
 import tkinter as tk
 from buttons import Buttons
 from result import Result
+from calculator import Calculator
 
 #colors:
 """
@@ -10,6 +11,8 @@ from result import Result
 #839FCF
 #809BCE
 """
+
+calculator = Calculator()
 
 window = tk.Tk()
 window.title("Example")
@@ -30,11 +33,16 @@ result = Result(output_frame)
 result.add_label("#809BCE","black")
 
 buttons = Buttons(buttons_frame)
+buttons.add_button("AC","#95B8D1","black",0,0)
+buttons.add_button("+/-","#95B8D1","black",0,1)
+buttons.add_button("%","#95B8D1","black",0,2)
 buttons.add_button("+","#95B8D1","black",0,3)
 buttons.add_button("-","#95B8D1","black",1,3)
 buttons.add_button("*","#95B8D1","black",2,3)
 buttons.add_button("/","#95B8D1","black",3,3)
 buttons.add_button("=","#95B8D1","black",4,3)
+buttons.add_button("0","#95B8D1","black",4,0,2)
+buttons.add_button(".","#95B8D1","black",4,2)
 
 row = 1
 col = 0

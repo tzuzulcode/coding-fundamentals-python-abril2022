@@ -1,1 +1,0 @@
-# Logica de aplicación
