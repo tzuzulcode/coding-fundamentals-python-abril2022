@@ -19,3 +19,6 @@ class Result:
         )
 
         output_label.grid(row=0,column=0,sticky="NSEW")
+
+    def write_number(self,number):
+        pass

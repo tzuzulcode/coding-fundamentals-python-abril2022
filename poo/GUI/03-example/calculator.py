@@ -65,10 +65,11 @@ class Calculator:
         return division
 
     def change_operator(self, operator):
+        print("operator")
         self.change_operator = operator
 
 
-    def result(self):
+    def calculate(self):
         if self.__operator == "+":
             self.add()
         elif self.__operator == "-":
