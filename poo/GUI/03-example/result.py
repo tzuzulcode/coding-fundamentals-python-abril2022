@@ -1,3 +1,4 @@
+from cgitb import text
 import tkinter as tk
 
 class Result:
@@ -20,5 +21,21 @@ class Result:
 
         output_label.grid(row=0,column=0,sticky="NSEW")
 
-    def write_number(self,number):
-        pass
+        self.output_label = output_label
+
+    def write_number(self,number,calculator):
+        if(calculator.active_number==1):
+            if(calculator.number1==0):
+                calculator.number1 = str(number)
+            else:
+                calculator.number1 = calculator.number1 + str(number)
+            self.output_label.configure(text=calculator.number1)
+        else:
+            if(calculator.number2==0):
+                calculator.number2 = str(number)
+            else:
+                calculator.number2 += str(number)
+            self.output_label.configure(text=calculator.number2)
+
+    def show_result(self,calculator):
+        self.output_label.configure(text=calculator.number1)

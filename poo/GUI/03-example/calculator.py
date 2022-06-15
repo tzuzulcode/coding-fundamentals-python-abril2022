@@ -9,7 +9,13 @@ class Calculator:
 
     @property
     def number1(self):
-        return str(self.__number1)
+        if(isinstance(self.__number1,int)):
+            return str(self.__number1)
+        elif(isinstance(self.__number1,float)):
+            if(self.__number1.is_integer()):
+                return str(int(self.__number1))
+            else:
+                return str(self.__number1)
     
     @number1.setter
     def number1(self,new_number):
@@ -17,11 +23,18 @@ class Calculator:
 
     @property
     def number2(self):
-        return str(self.__number2)
+        if isinstance(self.__number2,int) or isinstance(self.__number2,float) and not self.__number2.is_integer():
+            return str(self.__number2)
+        else:
+            return str(int(self.__number2))
     
     @number2.setter
     def number2(self,new_number):
         self.__number2 = float(new_number)
+
+    @property
+    def active_number(self):
+        return self.__active_number
 
     def clean_number(self):
         self.__number1 = 0
@@ -66,10 +79,11 @@ class Calculator:
 
     def change_operator(self, operator):
         print("operator")
-        self.change_operator = operator
+        self.__operator = operator
+        self.__active_number = 2
 
 
-    def calculate(self):
+    def calculate(self,show_result):
         if self.__operator == "+":
             self.add()
         elif self.__operator == "-":
@@ -83,3 +97,5 @@ class Calculator:
         
         self.__active_number = 1
         self.__operator = ""
+
+        show_result(self)

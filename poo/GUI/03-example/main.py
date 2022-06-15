@@ -32,9 +32,6 @@ buttons_frame.grid(row=1,column=0,sticky="NSEW")
 result = Result(output_frame)
 result.add_label("#809BCE","black")
 
-def write_number(number):
-    print(number)
-
 buttons = Buttons(buttons_frame)
 buttons.add_button("AC","#95B8D1","black",0,0,calculator.clean_number)
 buttons.add_button("+/-","#95B8D1","black",0,1,calculator.invert_number)
@@ -43,8 +40,8 @@ buttons.add_button("+","#95B8D1","black",0,3,lambda:calculator.change_operator("
 buttons.add_button("-","#95B8D1","black",1,3,lambda:calculator.change_operator("-"))
 buttons.add_button("*","#95B8D1","black",2,3,lambda:calculator.change_operator("*"))
 buttons.add_button("/","#95B8D1","black",3,3,lambda:calculator.change_operator("/"))
-buttons.add_button("=","#95B8D1","black",4,3,calculator.calculate)
-buttons.add_button("0","#95B8D1","black",4,0,lambda:write_number(0),2)
+buttons.add_button("=","#95B8D1","black",4,3,lambda:calculator.calculate(result.show_result))
+buttons.add_button("0","#95B8D1","black",4,0,lambda:result.write_number(0,calculator),2)
 buttons.add_button(".","#95B8D1","black",4,2,lambda:print("."))
 
 
@@ -52,7 +49,7 @@ buttons.add_button(".","#95B8D1","black",4,2,lambda:print("."))
 row = 1
 col = 0
 for i in range(1,10):
-    buttons.add_button(str(i),"#95B8D1","black",row,col,lambda i=i:write_number(i))
+    buttons.add_button(str(i),"#95B8D1","black",row,col,lambda i=i:result.write_number(i,calculator))
     col+=1
     if(col>=3):
         col = 0
