@@ -25,17 +25,18 @@ class Result:
 
     def write_number(self,number,calculator):
         if(calculator.active_number==1):
-            if(calculator.number1==0):
+            if(calculator.number1=="0"):
                 calculator.number1 = str(number)
             else:
                 calculator.number1 = calculator.number1 + str(number)
             self.output_label.configure(text=calculator.number1)
         else:
-            if(calculator.number2==0):
+            if(calculator.number2=="0"):
                 calculator.number2 = str(number)
             else:
                 calculator.number2 += str(number)
             self.output_label.configure(text=calculator.number2)
 
-    def show_result(self,calculator):
+    def update_result(self,calculator):
+        print(calculator.number1)
         self.output_label.configure(text=calculator.number1)

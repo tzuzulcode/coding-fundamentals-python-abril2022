@@ -32,17 +32,22 @@ buttons_frame.grid(row=1,column=0,sticky="NSEW")
 result = Result(output_frame)
 result.add_label("#809BCE","black")
 
+def update_result(operation):
+    operation()
+    result.update_result(calculator)
+
 buttons = Buttons(buttons_frame)
-buttons.add_button("AC","#95B8D1","black",0,0,calculator.clean_number)
-buttons.add_button("+/-","#95B8D1","black",0,1,calculator.invert_number)
-buttons.add_button("%","#95B8D1","black",0,2,calculator.percent_number)
+buttons.add_button("AC","#95B8D1","black",0,0,lambda:update_result(calculator.clean_number))
+buttons.add_button("+/-","#95B8D1","black",0,1,lambda:update_result(calculator.invert_number))
+buttons.add_button("%","#95B8D1","black",0,2,lambda:update_result(calculator.percent_number))
 buttons.add_button("+","#95B8D1","black",0,3,lambda:calculator.change_operator("+"))
 buttons.add_button("-","#95B8D1","black",1,3,lambda:calculator.change_operator("-"))
 buttons.add_button("*","#95B8D1","black",2,3,lambda:calculator.change_operator("*"))
 buttons.add_button("/","#95B8D1","black",3,3,lambda:calculator.change_operator("/"))
-buttons.add_button("=","#95B8D1","black",4,3,lambda:calculator.calculate(result.show_result))
+# buttons.add_button("=","#95B8D1","black",4,3,lambda:calculator.calculate(result.show_result))
+buttons.add_button("=","#95B8D1","black",4,3,lambda:update_result(calculator.calculate))
 buttons.add_button("0","#95B8D1","black",4,0,lambda:result.write_number(0,calculator),2)
-buttons.add_button(".","#95B8D1","black",4,2,lambda:print("."))
+buttons.add_button(".","#95B8D1","black",4,2,lambda:update_result(calculator.decimal_dot))
 
 
 
