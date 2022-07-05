@@ -31,6 +31,8 @@ def format_2f(func):
 def decirHola(name):
     print("Hola,",name)
 
+
+# Reto: Convertir esto en la sintaxis clase de arriba
 @format_2f
 @function_details
 def sumar(a,b):
