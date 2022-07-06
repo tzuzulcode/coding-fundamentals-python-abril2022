@@ -32,11 +32,18 @@ def decirHola(name):
     print("Hola,",name)
 
 
-# Reto: Convertir esto en la sintaxis clase de arriba
+# Reto: Convertir esto en la sintaxis de arriba
 @format_2f
 @function_details
 def sumar(a,b):
     return a+b
 
-decirHola("Tzuzul")
+# decirHola("Tzuzul")
 print(sumar(a=5,b=10))
+
+# Solucion del reto:
+# details = function_details(sumar)
+
+# format_number = format_2f(details)
+
+# print(format_number(a=5,b=10))
