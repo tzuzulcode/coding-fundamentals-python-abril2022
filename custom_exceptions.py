@@ -18,3 +18,8 @@ try:
 except Exception as error:
     print("Exception: ", error.__class__.__name__)
     print("Algo salio mal: ", error)
+
+
+lista = [1,2,3,4,5]
+
+# result = sum(filter(lista))
