@@ -22,4 +22,43 @@ print(['Tzuzul']*10)
 print(['Tzuzul','Juanito']*2)
 print('abc'*10)
 
+del numbers[6]
+print(numbers)
+
 # Comprehension
+# Generar una lista de numeros del 1 al 100
+numbers_list = []
+# numbers_list.append(1)
+# numbers_list.append(2)
+# numbers_list.append(3)
+# numbers_list.append(4)
+# Posible solución 1:
+# for i in range(1,101):
+#     numbers_list.append(i)
+
+# Posible solución 2:
+# numbers_list = list(range(1,101))
+
+# Posible solución 3:
+# List comprehension
+# [expresion for item in iterable]
+# numbers_list = [number for number in range(1,101)]
+# numbers_list = [number+1 for number in range(100)]
+
+# print(numbers_list)
+
+# Lista de 10 de zeros:
+lista_zeros = [0 for _ in range(10)]
+print(lista_zeros)
+
+# Lista de pares
+# lista_pares = [number for number in range(100) if number % 2 == 0]
+# lista_pares = list(range(100))[::2]
+lista_pares = [number for number in range(0,100,2)]
+print(lista_pares)
+
+# Generando matriz
+# matriz = [[row,col] for row in range(1,10,3) for col in range(row,row+3)]
+size = 3
+matriz = [[col for col in range(row,row+size)] for row in range(1,(size**2)+1,size)]
+print(matriz)
